@@ -144,4 +144,50 @@ Run services in this order:
 
 ```bash
 cd <service-folder>
-mvn spring-boot:run
+mvn spring-boot:run 
+```
+---
+
+### 🔹 Run Frontend
+```bash
+cd fitness-app-frontend
+npm install
+npm run dev
+```
+---
+
+## 🚀 Future Improvements
+
+| Planned Enhancements |
+|---------------------|
+| Docker containerization of all services |
+| Kubernetes-based deployment |
+| CI/CD pipeline integration |
+| Real-time analytics dashboard |
+| Notification system (Email/SMS) |
+
+---
+
+## 💡 Key Highlights
+
+- **Microservices-based scalable architecture**
+- **Secure authentication using Keycloak**
+- **Event-driven communication using RabbitMQ**
+- **Multi-database design (PostgreSQL + MongoDB)**
+- **AI-powered recommendation system**
+
+---
+
+## 👨‍💻 Author
+
+| Field | Details |
+|------|--------|
+| Name | Umashankar |
+
+---
+
+## 📄 License
+
+© 2026 Umashankar S Gouda. All Rights Reserved.  
+
+---
