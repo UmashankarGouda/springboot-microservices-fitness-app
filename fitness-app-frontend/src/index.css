@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+/* ======================================================
+   Fit&Fantastic – Design System & Global Styles
+   ====================================================== */
+
+/* --- CSS Custom Properties (Design Tokens) --- */
+@layer base {
+  :root {
+    /* Background */
+    --bg-primary: #0a0a1a;
+    --bg-secondary: #111128;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --bg-card-hover: rgba(255, 255, 255, 0.07);
+    --bg-glass: rgba(255, 255, 255, 0.06);
+    --bg-glass-hover: rgba(255, 255, 255, 0.10);
+    --bg-surface: rgba(255, 255, 255, 0.03);
+    --bg-input: rgba(255, 255, 255, 0.06);
+
+    /* Borders */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-glass: rgba(255, 255, 255, 0.12);
+    --border-accent: rgba(99, 102, 241, 0.4);
+
+    /* Text */
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --text-heading: #ffffff;
+
+    /* Accent Colors */
+    --accent-primary: #6366f1;
+    --accent-primary-light: #818cf8;
+    --accent-primary-dark: #4f46e5;
+    --accent-cyan: #06b6d4;
+    --accent-cyan-light: #22d3ee;
+    --accent-emerald: #10b981;
+    --accent-emerald-light: #34d399;
+    --accent-amber: #f59e0b;
+    --accent-amber-light: #fbbf24;
+    --accent-rose: #f43f5e;
+    --accent-rose-light: #fb7185;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #6366f1, #06b6d4);
+    --gradient-hero: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0a0a1a 100%);
+    --gradient-card: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.04));
+    --gradient-card-accent: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.08));
+    --gradient-text: linear-gradient(135deg, #818cf8, #22d3ee);
+
+    /* Activity Type Colors */
+    --color-running: #6366f1;
+    --color-walking: #10b981;
+    --color-cycling: #f59e0b;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-glow-primary: 0 0 30px rgba(99, 102, 241, 0.15);
+    --shadow-glow-cyan: 0 0 30px rgba(6, 182, 212, 0.15);
+
+    /* Misc */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+
+    /* Spacing */
+    --navbar-height: 72px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-family);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+/* --- Dark Theme (for authenticated pages) --- */
+@layer components {
+  .dark-theme {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  .dark-theme a {
+    color: var(--accent-primary-light);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .dark-theme a:hover {
+    color: var(--accent-cyan-light);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Utility Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.4); }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+}
+
+/* Stagger children */
+@layer components {
+  .stagger-children > * {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+  .stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+  .stagger-children > *:nth-child(9) { animation-delay: 0.45s; }
+
+  /* --- MUI Overrides --- */
+  .MuiPaper-root {
+    background: transparent !important;
+  }
+
+  .MuiDialog-paper {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  /* Snackbar styling */
+  .notistack-MuiContent-success {
+    background: var(--accent-emerald) !important;
+  }
+
+  .notistack-MuiContent-error {
+    background: var(--accent-rose) !important;
+  }
+}

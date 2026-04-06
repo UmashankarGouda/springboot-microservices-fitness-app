@@ -1,0 +1,14 @@
+# Java
+target/
+*.class
+
+# IntelliJ
+.idea/
+*.iml
+
+# Node
+node_modules/
+dist/
+
+# Env
+.env
