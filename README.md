@@ -1,95 +1,133 @@
 # 🏋️‍♂️ Spring Boot Microservices AI Fitness Platform
 
-A scalable **AI-powered fitness tracking platform** built using **Spring Boot Microservices architecture**, featuring secure authentication, distributed system design, and intelligent recommendations using AI.
+![Java](https://img.shields.io/badge/Java-17-blue)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-Microservices-brightgreen)
+![React](https://img.shields.io/badge/Frontend-React-blue)
+![RabbitMQ](https://img.shields.io/badge/Message%20Queue-RabbitMQ-orange)
+![Keycloak](https://img.shields.io/badge/Auth-Keycloak-purple)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-green)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)
+![AI](https://img.shields.io/badge/AI-Google%20Gemini-red)
 
 ---
 
-## 🚀 Overview
+## 📌 Overview
 
-This project is a full-stack microservices-based fitness application where users can track activities, manage profiles, and receive AI-powered insights.  
+A scalable and production-ready **AI-powered fitness tracking platform** built using **Spring Boot Microservices architecture**.
 
-The system is designed using **industry-grade architecture patterns** such as API Gateway, Service Discovery, Centralized Configuration, and asynchronous communication.
+This application allows users to:
+- Track fitness activities  
+- Manage user profiles securely  
+- Receive AI-powered recommendations  
+
+It demonstrates **real-world distributed system design** using modern tools like API Gateway, Service Discovery, centralized configuration, and asynchronous messaging.
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ System Architecture
 
-![Architecture](./architecture.png)
+![Architecture](./media/fitness-app-architecture.png)
 
-### 🔹 System Flow
+### 🔹 Architecture Highlights
 
-1. Users interact via **React Frontend**
-2. Requests go through **API Gateway**
-3. Authentication handled by **Keycloak**
-4. Services communicate via:
-   - REST (synchronous)
-   - RabbitMQ (asynchronous)
-5. AI Service processes data using **Google Gemini API**
-6. Services are registered and discovered using **Eureka**
+- Microservices-based architecture  
+- API Gateway for centralized routing  
+- Eureka for service discovery  
+- Config Server for centralized configuration  
+- Keycloak for authentication & authorization  
+- RabbitMQ for event-driven communication  
+- AI integration using Google Gemini  
+
+---
+
+## 🔄 Request Flow
+
+1. Client (Web/Mobile) interacts with React Frontend  
+2. Requests go through API Gateway  
+3. Authentication handled via Keycloak  
+4. Gateway routes request to appropriate service  
+5. Services communicate via REST and RabbitMQ  
+6. AI Service processes data using Gemini API  
+7. Data stored in respective databases  
 
 ---
 
 ## 🧩 Microservices
 
-| Service            | Description |
-|--------------------|------------|
-| **User Service**   | Manages user data (PostgreSQL) |
-| **Activity Service** | Handles fitness activities (MongoDB) |
-| **AI Service**     | Provides AI insights using Gemini API |
-| **API Gateway**    | Routes all client requests |
-| **Eureka Server**  | Service discovery |
-| **Config Server**  | Centralized configuration management |
-
----
-
-## 🛠️ Tech Stack
-
-### 🔹 Backend
-- Java + Spring Boot
-- Spring Cloud (Eureka, Gateway, Config Server)
-- RabbitMQ (Message Queue)
-- Keycloak (Authentication & Authorization)
-
-### 🔹 Frontend
-- React.js
-
-### 🔹 Databases
-- PostgreSQL (User Service)
-- MongoDB (Activity & AI Service)
-
-### 🔹 AI Integration
-- Google Gemini API
+| Service            | Description | Database |
+|--------------------|------------|----------|
+| User Service       | Manages users | PostgreSQL |
+| Activity Service   | Tracks fitness activities | MongoDB |
+| AI Service         | AI-based recommendations | MongoDB |
+| API Gateway        | Request routing | — |
+| Eureka Server      | Service discovery | — |
+| Config Server      | Centralized configs | — |
 
 ---
 
 ## 🔐 Authentication
 
 - Implemented using **Keycloak**
-- Secure OAuth2/OpenID Connect-based authentication
-- Centralized identity management
+- OAuth2 & OpenID Connect based authentication  
+- Centralized identity management  
 
 ---
 
 ## 🔄 Communication
 
-- **Synchronous:** REST APIs via Gateway  
-- **Asynchronous:** RabbitMQ for event-driven communication  
+### 🔹 Synchronous
+- REST APIs via API Gateway  
+
+### 🔹 Asynchronous
+- RabbitMQ for event-driven architecture  
 
 ---
 
-## ⚙️ Setup & Run Instructions
+## 🛠️ Tech Stack
+
+### Backend
+- Java 17  
+- Spring Boot  
+- Spring Cloud (Eureka, Gateway, Config Server)  
+- RabbitMQ  
+- Keycloak  
+
+### Frontend
+- React.js  
+
+### Databases
+- PostgreSQL  
+- MongoDB  
+
+### AI
+- Google Gemini API  
+
+---
+
+## 🌐 Port Mapping
+
+![Port Mapping](./media/port-mapping.png)
+
+> Shows how services are mapped to ports and interact internally.
+
+---
+
+## ⚙️ Setup & Execution
 
 ### 🔹 Prerequisites
-- Java 17+
-- Node.js
-- Docker (optional but recommended)
-- PostgreSQL
-- MongoDB
-- RabbitMQ
+- Java 17+  
+- Node.js  
+- Maven  
+- PostgreSQL  
+- MongoDB  
+- RabbitMQ  
+- Keycloak  
 
 ---
 
-### 🔹 Run Order (IMPORTANT)
+### 🔹 Execution Order
+
+Run services in this order:
 
 1. Config Server  
 2. Eureka Server  
@@ -98,11 +136,11 @@ The system is designed using **industry-grade architecture patterns** such as AP
 5. User Service  
 6. Activity Service  
 7. AI Service  
-8. React Frontend  
+8. Frontend  
 
 ---
 
-### 🔹 Backend
+### 🔹 Run Backend
 
 ```bash
 cd <service-folder>
