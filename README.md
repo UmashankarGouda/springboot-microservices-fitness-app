@@ -10,6 +10,17 @@
 ![AI](https://img.shields.io/badge/AI-Google%20Gemini-red)
 
 ---
+## 🎥 Demo Video
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=ECPZDJ82ucQ">
+    <img src="https://img.youtube.com/vi/ECPZDJ82ucQ/0.jpg" alt="Watch Demo"/>
+  </a>
+  <br/>
+  <em>Click to watch the full demo</em>
+</p>
+
+---
 
 ## 📌 Overview
 
